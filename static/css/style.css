@@ -35,12 +35,14 @@ div {
 }
 
 .header-nav {
-  width: 1120px;
+  width: 100%;
+  max-width: 1120px;
   height: 60px;
   padding: 10px 0;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .header-nav>div {
@@ -372,4 +374,42 @@ div {
 .qq-url {
   text-decoration: none;
   color: black;
+}
+
+@media only screen and (max-width: 600px) {
+  .header-nav {
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 0;
+  }
+
+  .header-nav > div {
+    margin-bottom: 10px;
+  }
+
+  .main-container {
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  .shell-item {
+    font-size: 14px;
+  }
+
+  .system-item {
+    width: calc((100% - 24px)/2);
+  }
+
+  .system-item:nth-child(2n+1) {
+    margin-right: 8px;
+  }
+
+  .system-item:nth-child(2n+2) {
+    margin-left: 8px;
+    margin-right: 0;
+  }
+
+  .system-name {
+    font-size: 18px;
+  }
 }
