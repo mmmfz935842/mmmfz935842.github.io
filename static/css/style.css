@@ -270,11 +270,23 @@ div {
 .coco-modal {
   margin-top: 50vh !important;
   transform: translateY(-50%) translateZ(0) !important;
-  ;
+  max-width: 90% !important;
+  width: 90% !important;
+  left: 5% !important;
+}
+
+.coco-modal-body {
+  padding: 15px !important;
+  max-height: 60vh !important;
+  overflow-y: auto !important;
 }
 
 .coco-modal-body>span {
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  display: block;
+  word-break: break-all;
 }
 
 .overlay-btn:focus {
@@ -380,36 +392,163 @@ div {
   .header-nav {
     flex-direction: column;
     align-items: center;
-    padding: 5px 0;
+    padding: 8px 0;
+    height: auto;
   }
 
-  .header-nav > div {
-    margin-bottom: 10px;
+  .header-nav>div {
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .header-left {
+    padding: 0;
+  }
+
+  .header-right {
+    padding: 0;
+    height: auto;
+  }
+
+  .shell-item {
+    font-size: 16px;
+    padding: 8px 12px;
+    height: auto;
+  }
+
+  .shell-item:first-child {
+    border-right: none;
+    margin-bottom: 4px;
+  }
+
+  .site-name {
+    font-size: 20px;
   }
 
   .main-container {
     width: 100%;
-    padding: 0 15px;
+    padding: 0 16px;
   }
 
-  .shell-item {
-    font-size: 14px;
+  .system-list {
+    margin-top: 16px;
   }
 
   .system-item {
-    width: calc((100% - 24px)/2);
+    width: 100%;
+    margin: 6px 0;
+    height: 100px;
+    padding: 12px;
   }
 
-  .system-item:nth-child(2n+1) {
-    margin-right: 8px;
-  }
-
-  .system-item:nth-child(2n+2) {
-    margin-left: 8px;
-    margin-right: 0;
+  .system-item:hover {
+    transform: none;
   }
 
   .system-name {
     font-size: 18px;
+    margin-top: 4px;
+  }
+
+  .system-remarks {
+    font-size: 14px;
+  }
+
+  .system-logo {
+    width: 50px;
+    height: 50px;
+    top: 25px;
+  }
+
+  .overlay-btn {
+    padding: 6px 16px;
+    margin: 6px;
+    font-size: 14px;
+  }
+
+  .node-name {
+    font-size: 20px;
+  }
+
+  .page-footer {
+    padding-top: 16px;
+    font-size: 14px;
+  }
+}
+
+/* 移动端适配 */
+@media screen and (max-width: 768px) {
+  .page-container {
+    padding: 10px;
+  }
+
+  .main-container {
+    width: 100%;
+  }
+
+  .system-list {
+    margin-bottom: 20px;
+  }
+
+  .list-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .system-item {
+    width: calc(50% - 10px);
+    margin: 5px;
+  }
+
+  .header-nav {
+    padding: 10px;
+    flex-direction: column;
+  }
+
+  .header-left,
+  .header-right {
+    width: 100%;
+    justify-content: center;
+    margin: 5px 0;
+  }
+
+  .shell-item {
+    margin: 5px;
+  }
+
+  .system-overlay {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .overlay-btn-group {
+    opacity: 1;
+  }
+}
+
+/* 小屏幕手机适配 */
+@media screen and (max-width: 480px) {
+  .system-item {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+
+/* 移动端特别处理 */
+@media screen and (max-width: 768px) {
+  .coco-modal {
+    margin: 0 !important;
+    top: 50% !important;
+    max-height: 80vh !important;
+  }
+
+  .coco-modal-footer {
+    padding: 10px !important;
+  }
+
+  .coco-modal-footer button {
+    padding: 8px 20px !important;
+    font-size: 14px !important;
   }
 }

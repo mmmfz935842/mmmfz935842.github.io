@@ -4,7 +4,7 @@
 <head>
   <title>魔法咖 -客户端整合大全</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta id="view" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
   <meta name="description" content="Clash客户端,安卓Clash,电脑Clash,v2rayn">
   <link href="static/css/style.css" rel="stylesheet">
@@ -219,7 +219,7 @@
     </div>
   </div>
   <div class="page-footer">
-    Copyright © 2022-2023 | Contact:
+    Copyright © 2023-2024 | Contact:
     <div class="qq-icon"></div> QQ <a class="qq-url" href="http://wpa.qq.com/msgrd?v=3&uin=1287766992&site=qq&menu=yes"
       target="_blank">1287766992</a>
   </div>
@@ -233,16 +233,6 @@
       isAndroid = ua.match(/(Android)\s+([\d.]+)/),
       isMobile = isIphone || isAndroid;
 
-    if (isMobile) {
-      //获取设备像素
-      var devicewidth = document.documentElement.clientWidth;
-      var devicewidth2 = window.screen.width;
-      var scale = devicewidth / 1200;
-      document.getElementById("view").setAttribute('content',
-        "user-scalable=yes, width=device-width, initial-scale=" +
-        scale);
-    }
-
     function openWithoutReferrer(url) {
       window.open('javascript:window.name', '<script>location.replace("' + url + '")<\/script>' + (new Date())
         .getTime());
@@ -252,11 +242,30 @@
       openWithoutReferrer(url);
     }
 
-    var clipboard = new ClipboardJS('.copy-btn');
+    var clipboard = new ClipboardJS('.copy-btn', {
+      trigger: function (e) {
+        return e;
+      }
+    });
+
     clipboard.on('success', function (e) {
+      e.clearSelection();
       coco({
         title: "提示",
         text: "成功复制到剪贴板：" + e.text,
+        blur: true,
+        okButton: true,
+        cancelButton: false,
+        okText: '确定',
+        closeButton: true,
+        animation: false
+      });
+    });
+
+    clipboard.on('error', function (e) {
+      coco({
+        title: "提示",
+        text: "复制失败，请手动复制",
         blur: true,
         okButton: true,
         cancelButton: false,
