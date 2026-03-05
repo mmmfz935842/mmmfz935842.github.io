@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlClash 使用教程 - 魔法云盘</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      .article-container {
+        padding: 30px 40px;
+        overflow-y: auto;
+        scroll-behavior: smooth;
+        height: 100%;
+      }
+      .article-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: var(--text-main);
+      }
+      .article-meta {
+        color: var(--text-sub);
+        font-size: 0.9rem;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .section-title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        padding-left: 12px;
+        border-left: 4px solid var(--primary-color);
+        color: #333;
+        display: flex;
+        align-items: center;
+      }
+      .section-title i {
+        margin-right: 10px;
+        color: var(--primary-color);
+      }
+      .step-list {
+        list-style: none;
+        counter-reset: step;
+      }
+      .step-item {
+        position: relative;
+        padding-left: 45px;
+        margin-bottom: 25px;
+      }
+      .step-item::before {
+        counter-increment: step;
+        content: counter(step);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 30px;
+        height: 30px;
+        background: #eaf5ff;
+        color: var(--primary-color);
+        border-radius: 50%;
+        text-align: center;
+        line-height: 30px;
+        font-weight: bold;
+        font-size: 0.9rem;
+      }
+      .step-title {
+        font-weight: 600;
+        font-size: 1.05rem;
+        margin-bottom: 8px;
+        color: #333;
+      }
+      .step-desc {
+        font-size: 0.95rem;
+        color: #666;
+        line-height: 1.6;
+        background: #f9f9f9;
+        padding: 15px;
+        border-radius: 8px;
+      }
+      .tip-box {
+        background-color: #fff7e6;
+        border: 1px solid #ffe58f;
+        padding: 15px;
+        border-radius: 6px;
+        margin: 15px 0;
+        font-size: 0.9rem;
+        color: #d48806;
+        display: flex;
+        align-items: flex-start;
+      }
+      .tip-box i {
+        margin-right: 8px;
+        margin-top: 3px;
+      }
+      @media (max-width: 768px) {
+        .article-container {
+          padding: 20px;
+        }
+        .section-title {
+          font-size: 1.2rem;
+          margin-top: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <a href="index.html" class="logo" style="text-decoration: none">
+        <i class="fa-solid fa-cloud-bolt"></i>
+        <span>魔法云盘</span>
+      </a>
+      <div class="header-actions">
+        <a
+          href="index.html"
+          class="nav-btn btn-group"
+          style="background: #f5f6fa; color: #666; border: 1px solid #ddd"
+        >
+          <i class="fas fa-arrow-left"></i>
+          <span style="margin-left: 4px">返回首页</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="main-container">
+      <div class="sidebar">
+        <div
+          class="menu-item active"
+          onclick="scrollToSection('all-platform', this)"
+        >
+          <i class="fas fa-laptop-house"></i> 全平台通用教程
+        </div>
+      </div>
+
+      <div class="content-area">
+        <div class="article-container" id="article-scroll-area">
+          <div class="article-title">FlClash 全平台配置保姆级教程</div>
+          <div class="article-meta">
+            <i class="far fa-clock"></i> 更新于 2026-02-02 &nbsp;|&nbsp;
+            <i class="fas fa-user-edit"></i> 魔法云盘
+          </div>
+
+          <div id="all-platform" style="scroll-margin-top: 20px">
+            <div class="section-title">
+              <i class="fas fa-laptop-house"></i> 通用使用指南 (Win/Mac/安卓)
+            </div>
+            <div class="tip-box">
+              <i class="fas fa-info-circle"></i>
+              <span
+                >FlClash 是一款基于 Flutter
+                开发的新锐代理客户端，在所有设备上均拥有一致的操作逻辑和现代化的界面设计。</span
+              >
+            </div>
+            <ol class="step-list">
+              <li class="step-item">
+                <div class="step-title">下载并安装客户端</div>
+                <div class="step-desc">
+                  在首页下载您对应系统的安装包并完成安装。如果是首次在电脑上运行，若弹出防火墙警告，请勾选网络并点击“允许访问”。
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-title">导入机场订阅链接</div>
+                <div class="step-desc">
+                  1. 复制你购买的机场订阅链接。<br />
+                  <span
+                    style="
+                      color: #666;
+                      font-size: 0.9em;
+                      background: #fffbe6;
+                      padding: 4px 8px;
+                      border-radius: 4px;
+                      display: inline-block;
+                      margin: 4px 0;
+                    "
+                  >
+                    💡 提示：不想付费可体验免费节点，请访问
+                    <a
+                      href="https://jd.222260.xyz"
+                      target="_blank"
+                      style="color: #06a7ff; text-decoration: underline"
+                      >此网页 (jd.222260.xyz)</a
+                    >
+                    获取。<br /> </span
+                  ><br />
+                  2. 打开 FlClash，点击导航栏的
+                  <strong>配置 (Profiles)</strong>。<br />
+                  3. 点击新增（通常为
+                  <strong>+ 号图标</strong> 或点击右上角），将订阅链接粘贴到 URL
+                  栏中，并点击确认/保存。<br />
+                  4.
+                  等待进度条走完配置下载完成后，<strong>务必点击选中</strong>刚刚添加的配置文件。
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-title">启动连接并选择节点</div>
+                <div class="step-desc">
+                  1. 切换到
+                  <strong>代理 (Proxies)</strong>
+                  页面，您可以点击右上角测试延迟，然后选择一个带绿色延迟数值的节点。<br />
+                  2. 切换回
+                  <strong>主页 (Dashboard)</strong>，点击打开中间醒目的
+                  <strong>启动/开启 (Enable)</strong> 开关。<br />
+                  3. 看见连接时间开始走动后，恭喜你，现在可以畅游国际互联网了！
+                </div>
+              </li>
+            </ol>
+          </div>
+
+          <div style="height: 100px"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function scrollToSection(id, element) {
+        document
+          .querySelectorAll(".menu-item")
+          .forEach((item) => item.classList.remove("active"));
+        element.classList.add("active");
+
+        const section = document.getElementById(id);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    </script>
+  </body>
+</html>
