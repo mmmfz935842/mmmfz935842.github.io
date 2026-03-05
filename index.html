@@ -4,6 +4,74 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>魔法云盘 - 资源下载</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #f5f6fa;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        overflow: hidden;
+      }
+      #loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #ffffff;
+        z-index: 99999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 0.6s ease, visibility 0.6s ease;
+      }
+      #loading-screen.fade-out {
+        opacity: 0;
+        visibility: hidden;
+      }
+      .loader-icon {
+        font-size: 3.5rem;
+        color: #06a7ff;
+        margin-bottom: 15px;
+        animation: cloudPulse 1.5s infinite ease-in-out;
+      }
+      .loader-text {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #555;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+      }
+      .progress-container {
+        width: 220px;
+        height: 4px;
+        background-color: #f0f0f0;
+        border-radius: 4px;
+        overflow: hidden;
+        position: relative;
+      }
+      .progress-bar {
+        height: 100%;
+        background-color: #06a7ff;
+        width: 0%;
+        border-radius: 4px;
+        transition: width 0.2s linear;
+      }
+      @keyframes cloudPulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.8;
+        }
+      }
+    </style>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -12,7 +80,6 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- 加载动画 -->
     <div id="loading-screen">
       <i class="fas fa-cloud-bolt loader-icon"></i>
       <div class="loader-text">魔法云盘</div>
@@ -21,7 +88,6 @@
       </div>
     </div>
 
-    <!-- 顶部导航 -->
     <div class="header">
       <div class="logo">
         <i class="fa-solid fa-cloud-bolt"></i>
@@ -49,7 +115,6 @@
     </div>
 
     <div class="main-container">
-      <!-- 侧边栏 -->
       <div class="sidebar">
         <div class="menu-item active" onclick="filterFiles('all', this)">
           <i class="fas fa-folder-open"></i> 全部文件
@@ -63,13 +128,11 @@
         <div class="menu-item" onclick="filterFiles('mac', this)">
           <i class="fab fa-apple"></i> macOS
         </div>
-        <!-- 新增教程入口 -->
         <div class="menu-item" onclick="filterFiles('tutorial', this)">
           <i class="fas fa-book-open"></i> 使用教程
         </div>
       </div>
 
-      <!-- 内容区域 -->
       <div class="content-area">
         <div class="toolbar">
           <div class="breadcrumb" id="breadcrumb">全部文件</div>
@@ -83,6 +146,34 @@
 
         <div class="file-list">
           <!-- Windows -->
+          <div class="file-row" data-category="windows">
+            <div class="col-name">
+              <i class="fas fa-file-code file-icon exe"></i>
+              <div class="file-info-group">
+                <div class="file-name-wrapper">
+                  <span class="file-name-text"
+                    >FlClash-0.8.92-windows-setup.exe</span
+                  >
+                  <span class="tag-recommend" style="background: #06a7ff"
+                    >最新</span
+                  >
+                </div>
+                <p class="file-desc">
+                  现代化的多平台代理客户端，功能强大且轻量。
+                </p>
+              </div>
+            </div>
+            <div class="col-date">2026-02-02</div>
+            <div class="col-action">
+              <a
+                href="https://xz.5556.tech/https://github.com/chen08209/FlClash/releases/download/v0.8.92/FlClash-0.8.92-windows-amd64-setup.exe"
+                class="download-btn"
+                target="_blank"
+                ><i class="fas fa-download"></i
+              ></a>
+            </div>
+          </div>
+
           <div class="file-row" data-category="windows">
             <div class="col-name">
               <i class="fas fa-file-code file-icon exe"></i>
@@ -112,20 +203,17 @@
               <i class="fas fa-file-code file-icon exe"></i>
               <div class="file-info-group">
                 <div class="file-name-wrapper">
-                  <span class="file-name-text">Clash Verge_2.4.4.exe</span>
-                  <span class="tag-recommend" style="background: #06a7ff"
-                    >最新</span
-                  >
+                  <span class="file-name-text">Clash Verge_2.4.6.exe</span>
                 </div>
                 <p class="file-desc">
                   优秀的 Clash 桌面客户端，UI美观，功能强大且稳定。
                 </p>
               </div>
             </div>
-            <div class="col-date">2025-12-22</div>
+            <div class="col-date">2026-02-20</div>
             <div class="col-action">
               <a
-                href="https://xz.5556.tech/https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.4.4/Clash.Verge_2.4.4_x64-setup.exe"
+                href="https://xz.5556.tech/https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.4.6/Clash.Verge_2.4.6_x64-setup.exe"
                 class="download-btn"
                 target="_blank"
                 ><i class="fas fa-download"></i
@@ -157,6 +245,32 @@
           </div>
 
           <!-- Android -->
+          <div class="file-row" data-category="android">
+            <div class="col-name">
+              <i class="fab fa-android file-icon apk"></i>
+              <div class="file-info-group">
+                <div class="file-name-wrapper">
+                  <span class="file-name-text">FlClash-0.8.92.apk</span>
+                  <span class="tag-recommend" style="background: #06a7ff"
+                    >最新</span
+                  >
+                </div>
+                <p class="file-desc">
+                  安卓端 FlClash 客户端，界面优雅、支持最新协议配置。
+                </p>
+              </div>
+            </div>
+            <div class="col-date">2026-02-02</div>
+            <div class="col-action">
+              <a
+                href="https://xz.5556.tech/https://github.com/chen08209/FlClash/releases/download/v0.8.92/FlClash-0.8.92-android-arm64-v8a.apk"
+                class="download-btn"
+                target="_blank"
+                ><i class="fas fa-download"></i
+              ></a>
+            </div>
+          </div>
+
           <div class="file-row" data-category="android">
             <div class="col-name">
               <i class="fab fa-android file-icon apk"></i>
@@ -196,7 +310,7 @@
             <div class="col-date">2025-12-22</div>
             <div class="col-action">
               <a
-                href="https://xz.5556.tech/https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/v2.11.21/cmfa-2.11.21-meta-universal-release.apk"
+                href="https://xz.5556.tech/https://www.ytools.cc/gh/https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/v2.11.21/cmfa-2.11.21-meta-universal-release.apk"
                 class="download-btn"
                 target="_blank"
                 ><i class="fas fa-download"></i
@@ -210,8 +324,9 @@
               <i class="fas fa-compact-disc file-icon dmg"></i>
               <div class="file-info-group">
                 <div class="file-name-wrapper">
-                  <span class="file-name-text"
-                    >Clash Verge_2.4.4_M芯片.dmg</span
+                  <span class="file-name-text">FlClash-0.8.92_M芯片.dmg</span>
+                  <span class="tag-recommend" style="background: #06a7ff"
+                    >最新</span
                   >
                 </div>
                 <p class="file-desc">
@@ -219,10 +334,36 @@
                 </p>
               </div>
             </div>
-            <div class="col-date">2025-12-22</div>
+            <div class="col-date">2026-02-02</div>
             <div class="col-action">
               <a
-                href="https://xz.5556.tech/https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.4.4/Clash.Verge_2.4.4_aarch64.dmg"
+                href="https://xz.5556.tech/https://github.com/chen08209/FlClash/releases/download/v0.8.92/FlClash-0.8.92-macos-arm64.dmg"
+                class="download-btn"
+                target="_blank"
+                ><i class="fas fa-download"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="file-row" data-category="mac">
+            <div class="col-name">
+              <i class="fas fa-compact-disc file-icon dmg"></i>
+              <div class="file-info-group">
+                <div class="file-name-wrapper">
+                  <span class="file-name-text">FlClash-0.8.92_Intel.dmg</span>
+                  <span class="tag-recommend" style="background: #06a7ff"
+                    >最新</span
+                  >
+                </div>
+                <p class="file-desc">
+                  适用于旧款 Intel 处理器芯片的 Mac 电脑。
+                </p>
+              </div>
+            </div>
+            <div class="col-date">2026-02-02</div>
+            <div class="col-action">
+              <a
+                href="https://xz.5556.tech/https://github.com/chen08209/FlClash/releases/download/v0.8.92/FlClash-0.8.92-macos-amd64.dmg"
                 class="download-btn"
                 target="_blank"
                 ><i class="fas fa-download"></i
@@ -236,18 +377,18 @@
               <div class="file-info-group">
                 <div class="file-name-wrapper">
                   <span class="file-name-text"
-                    >Clash Verge_2.4.4_Intel.dmg</span
+                    >Clash Verge_2.4.6_M芯片.dmg</span
                   >
                 </div>
                 <p class="file-desc">
-                  适用于旧款 Intel 处理器芯片的 Mac 电脑。
+                  适用于 Apple Silicon (M1/M2/M3/M4) 芯片的 Mac 电脑。
                 </p>
               </div>
             </div>
-            <div class="col-date">2025-12-22</div>
+            <div class="col-date">2026-02-20</div>
             <div class="col-action">
               <a
-                href="https://xz.5556.tech/https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.4.4/Clash.Verge_2.4.4_x64.dmg"
+                href="https://xz.5556.tech/https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.4.6/Clash.Verge_2.4.6_aarch64.dmg"
                 class="download-btn"
                 target="_blank"
                 ><i class="fas fa-download"></i
@@ -255,7 +396,55 @@
             </div>
           </div>
 
-          <!-- 教程板块 (新增) -->
+          <div class="file-row" data-category="mac">
+            <div class="col-name">
+              <i class="fas fa-compact-disc file-icon dmg"></i>
+              <div class="file-info-group">
+                <div class="file-name-wrapper">
+                  <span class="file-name-text"
+                    >Clash Verge_2.4.6_Intel.dmg</span
+                  >
+                </div>
+                <p class="file-desc">
+                  适用于旧款 Intel 处理器芯片的 Mac 电脑。
+                </p>
+              </div>
+            </div>
+            <div class="col-date">2026-02-20</div>
+            <div class="col-action">
+              <a
+                href="https://xz.5556.tech/https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.4.6/Clash.Verge_2.4.6_x64.dmg"
+                class="download-btn"
+                target="_blank"
+                ><i class="fas fa-download"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- 教程板块 -->
+          <div class="file-row" data-category="tutorial">
+            <div class="col-name">
+              <i class="fas fa-book-journal-whills file-icon doc"></i>
+              <div class="file-info-group">
+                <div class="file-name-wrapper">
+                  <span class="file-name-text">FlClash 配置教程</span>
+                  <span class="tag-recommend" style="background: #06a7ff"
+                    >最新</span
+                  >
+                </div>
+                <p class="file-desc">
+                  全新加入！FlClash 全平台客户端导入订阅与使用指南。
+                </p>
+              </div>
+            </div>
+            <div class="col-date">2026-02-02</div>
+            <div class="col-action">
+              <a href="flclashhelp.html" class="download-btn" title="阅读教程"
+                ><i class="fas fa-eye"></i
+              ></a>
+            </div>
+          </div>
+
           <div class="file-row" data-category="tutorial">
             <div class="col-name">
               <i class="fas fa-book-journal-whills file-icon doc"></i>
@@ -268,7 +457,7 @@
                 </p>
               </div>
             </div>
-            <div class="col-date">2025-12-22</div>
+            <div class="col-date">2026-02-20</div>
             <div class="col-action">
               <a
                 href="clashvergehelp.html"
@@ -323,15 +512,17 @@
       <div class="modal-box">
         <div class="modal-title">🎉 魔法云盘更新公告</div>
         <div class="modal-content">
-          <p><strong>2025年12月22日更新：</strong></p>
+          <p><strong>2026年02月02日更新：</strong></p>
           <p>
-            1. <strong>Clash Verge</strong> 已同步更新至
-            <strong>v2.4.4</strong> 版本，修复已知 Bug，建议更新。
+            1. <strong>FlClash</strong> 新增至云盘，版本为
+            <strong>v0.8.92</strong>，全平台现已同步上架。
           </p>
-          <p>2. 新增 <strong>使用教程</strong> 板块，点击左侧菜单即可查看。</p>
           <p>
-            3. <strong>ClashMetaForAndroid</strong> 已同步更新至
-            <strong>v2.11.21</strong> 版本，修复已知 Bug，建议更新。
+            2. 新增配套
+            <strong>FlClash 使用教程</strong>，点击左侧教程菜单即可查看。
+          </p>
+          <p>
+            3. <strong>ClashMeta / Clash Verge</strong> 常规版本维护已完成更新。
           </p>
           <br />
           <p style="font-size: 0.85rem; color: #999">
