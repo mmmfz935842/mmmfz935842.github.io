@@ -73,7 +73,7 @@ function filterFiles(category, element) {
 }
 
 // 3. 公告逻辑 (版本控制 + 24小时)
-const announcementVersion = "2026.02.02"; // 更新公告版本触发弹窗
+const announcementVersion = "2026.3.22"; // 更新公告版本触发弹窗
 
 function checkAnnouncement() {
   const lastSeenTime = localStorage.getItem("announceTime");
