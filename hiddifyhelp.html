@@ -3,127 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hiddify 使用教程 - 魔法云盘</title>
-    <!-- 复用 FontAwesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <!-- 复用 Favicon -->
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <!-- 复用主样式表 -->
-    <link rel="stylesheet" href="style.css" />
+    <meta name="theme-color" content="#5B8DEF" />
 
-    <!-- 教程页面专用微调样式 -->
-    <style>
-      .article-container {
-        padding: 30px 40px;
-        overflow-y: auto;
-        scroll-behavior: smooth;
-        height: 100%;
-      }
-      .article-title {
-        font-size: 1.8rem;
-        font-weight: 700;
-        margin-bottom: 10px;
-        color: var(--text-main);
-      }
-      .article-meta {
-        color: var(--text-sub);
-        font-size: 0.9rem;
-        margin-bottom: 30px;
-        padding-bottom: 20px;
-        border-bottom: 1px solid var(--border-color);
-      }
-      .section-title {
-        font-size: 1.4rem;
-        font-weight: 600;
-        margin-top: 40px;
-        margin-bottom: 20px;
-        padding-left: 12px;
-        border-left: 4px solid var(--primary-color);
-        color: #333;
-        display: flex;
-        align-items: center;
-      }
-      .section-title i {
-        margin-right: 10px;
-        color: var(--primary-color);
-      }
-      .step-list {
-        list-style: none;
-        counter-reset: step;
-      }
-      .step-item {
-        position: relative;
-        padding-left: 45px;
-        margin-bottom: 25px;
-      }
-      .step-item::before {
-        counter-increment: step;
-        content: counter(step);
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 30px;
-        height: 30px;
-        background: #eaf5ff;
-        color: var(--primary-color);
-        border-radius: 50%;
-        text-align: center;
-        line-height: 30px;
-        font-weight: bold;
-        font-size: 0.9rem;
-      }
-      .step-title {
-        font-weight: 600;
-        font-size: 1.05rem;
-        margin-bottom: 8px;
-        color: #333;
-      }
-      .step-desc {
-        font-size: 0.95rem;
-        color: #666;
-        line-height: 1.6;
-        background: #f9f9f9;
-        padding: 15px;
-        border-radius: 8px;
-      }
-      .tip-box {
-        background-color: #fff7e6;
-        border: 1px solid #ffe58f;
-        padding: 15px;
-        border-radius: 6px;
-        margin: 15px 0;
-        font-size: 0.9rem;
-        color: #d48806;
-        display: flex;
-        align-items: flex-start;
-      }
-      .tip-box i {
-        margin-right: 8px;
-        margin-top: 3px;
-      }
-      @media (max-width: 768px) {
-        .article-container {
-          padding: 20px;
-        }
-        .section-title {
-          font-size: 1.2rem;
-          margin-top: 30px;
-        }
-      }
-    </style>
+    <title>Hiddify 全平台保姆级教程 - 魔法云盘</title>
+    <meta
+      name="description"
+      content="Hiddify 全平台保姆级教程：Windows / macOS / Android / iOS 一键导入订阅、智能连接节点，新手友好。"
+    />
+    <meta
+      name="keywords"
+      content="Hiddify教程,Hiddify使用,Hiddify Next,iOS Hiddify,新手翻墙"
+    />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://pan.101079.xyz/hiddifyhelp.html" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Hiddify 全平台保姆级教程" />
+    <meta
+      property="og:description"
+      content="Win / Mac / 安卓 / iOS 一键导入与连接的图文教程。"
+    />
+
+    <link rel="preconnect" href="https://cdn.staticfile.net" crossorigin />
+    <link rel="preload" href="https://cdn.staticfile.net/font-awesome/6.4.0/css/all.min.css" as="style" />
+    <link
+      id="fa-css"
+      rel="stylesheet"
+      href="https://cdn.staticfile.net/font-awesome/6.4.0/css/all.min.css"
+      onerror="this.onerror=null;this.href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css'"
+    />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- 顶部导航 -->
     <div class="header">
       <a href="index.html" class="logo" style="text-decoration: none">
         <i class="fa-solid fa-cloud-bolt"></i>
         <span>魔法云盘</span>
       </a>
       <div class="header-actions">
-        <!-- 返回首页按钮 -->
         <a
           href="index.html"
           class="nav-btn btn-group"
@@ -136,39 +54,27 @@
     </div>
 
     <div class="main-container">
-      <!-- 侧边栏：目录导航 -->
       <div class="sidebar">
-        <div
-          class="menu-item active"
-          onclick="scrollToSection('desktop', this)"
-        >
+        <div class="menu-item active" data-target="desktop">
           <i class="fas fa-desktop"></i> Windows / Mac
         </div>
-        <div class="menu-item" onclick="scrollToSection('mobile', this)">
+        <div class="menu-item" data-target="mobile">
           <i class="fas fa-mobile-alt"></i> 安卓 Android
         </div>
-        <div class="menu-item" onclick="scrollToSection('ios', this)">
+        <div class="menu-item" data-target="ios">
           <i class="fab fa-apple"></i> iOS / iPhone
         </div>
       </div>
 
-      <!-- 内容区域 -->
       <div class="content-area">
         <div class="article-container" id="article-scroll-area">
-          <div class="article-title">Hiddify 全平台保姆级教程</div>
+          <h1 class="article-title">Hiddify 全平台保姆级教程</h1>
           <div class="article-meta">
             <i class="far fa-clock"></i> 更新于 2025-12-22 &nbsp;|&nbsp;
             <i class="fas fa-user-edit"></i> 魔法云盘
           </div>
 
-          <div
-            class="tip-box"
-            style="
-              background-color: #e6f7ff;
-              border-color: #91d5ff;
-              color: #0050b3;
-            "
-          >
+          <div class="tip-box info">
             <i class="fas fa-lightbulb"></i>
             <span
               >Hiddify
@@ -176,11 +82,10 @@
             >
           </div>
 
-          <!-- Desktop 教程 -->
-          <div id="desktop" style="scroll-margin-top: 20px">
-            <div class="section-title">
+          <section id="desktop" data-spy style="scroll-margin-top: 20px">
+            <h2 class="section-title">
               <i class="fas fa-desktop"></i> Windows & macOS 教程
-            </div>
+            </h2>
             <ol class="step-list">
               <li class="step-item">
                 <div class="step-title">下载并安装</div>
@@ -201,27 +106,18 @@
                 <div class="step-title">一键导入配置</div>
                 <div class="step-desc">
                   1. 复制你的订阅链接。<br />
-                  <span
-                    style="
-                      color: #666;
-                      font-size: 0.9em;
-                      background: #fffbe6;
-                      padding: 4px 8px;
-                      border-radius: 4px;
-                      display: inline-block;
-                      margin: 4px 0;
-                    "
-                  >
+                  <span class="inline-tip">
                     💡 提示：不想付费可体验免费节点，请访问
                     <a
                       href="https://jd.222260.xyz"
                       target="_blank"
-                      style="color: #06a7ff; text-decoration: underline"
+                      rel="noopener"
+                      class="highlight-link"
                       >此网页 (jd.222260.xyz)</a
                     >
                     获取。<br />
                     <span style="font-size: 0.85em; color: #d48806"
-                      >(注意：请打开网页复制里面的“订阅链接”，不要直接把网页地址填进去)</span
+                      >(注意：请打开网页复制里面的"订阅链接"，不要直接把网页地址填进去)</span
                     > </span
                   ><br />
                   2. 打开 Hiddify，点击中间上方大大的
@@ -232,23 +128,20 @@
               <li class="step-item">
                 <div class="step-title">一键连接</div>
                 <div class="step-desc">
-                  点击屏幕中间巨大的
-                  <strong>连接按钮</strong
-                  >（圆形图标）。当它变绿并显示“已连接”时，即可开始上网。<br />
-                  默认是“自动选择”最快节点，你也可以点击下方的
+                  点击屏幕中间巨大的 <strong>连接按钮</strong>（圆形图标）。当它变绿并显示"已连接"时，即可开始上网。<br />
+                  默认是"自动选择"最快节点，你也可以点击下方的
                   <strong>代理</strong> 按钮手动选择国家/节点。
                 </div>
               </li>
             </ol>
-          </div>
+          </section>
 
-          <hr style="border: 0; border-top: 1px dashed #eee; margin: 40px 0" />
+          <hr class="section-divider" />
 
-          <!-- Mobile 教程 -->
-          <div id="mobile" style="scroll-margin-top: 20px">
-            <div class="section-title">
+          <section id="mobile" data-spy style="scroll-margin-top: 20px">
+            <h2 class="section-title">
               <i class="fas fa-mobile-alt"></i> 安卓手机教程
-            </div>
+            </h2>
             <ol class="step-list">
               <li class="step-item">
                 <div class="step-title">安装 APP</div>
@@ -260,22 +153,13 @@
                 <div class="step-title">导入订阅</div>
                 <div class="step-desc">
                   1. 复制订阅链接（或免费节点链接）。<br />
-                  <span
-                    style="
-                      color: #666;
-                      font-size: 0.9em;
-                      background: #fffbe6;
-                      padding: 2px 5px;
-                      border-radius: 4px;
-                      display: inline-block;
-                      margin: 4px 0;
-                    "
-                  >
+                  <span class="inline-tip">
                     💡 提示：免费节点请访问
                     <a
                       href="https://jd.222260.xyz"
                       target="_blank"
-                      style="color: #06a7ff; text-decoration: underline"
+                      rel="noopener"
+                      class="highlight-link"
                       >jd.222260.xyz</a
                     >
                     获取 (复制网页内的订阅链接)。 </span
@@ -287,30 +171,22 @@
               <li class="step-item">
                 <div class="step-title">点击连接</div>
                 <div class="step-desc">
-                  点击中间的大圆钮进行连接。首次连接时，安卓系统会弹出“网络连接请求”，请点击
+                  点击中间的大圆钮进行连接。首次连接时，安卓系统会弹出"网络连接请求"，请点击
                   <strong>确定</strong>。<br />
                   看到顶部出现 VPN 图标即代表连接成功。
                 </div>
               </li>
             </ol>
-          </div>
+          </section>
 
-          <hr style="border: 0; border-top: 1px dashed #eee; margin: 40px 0" />
+          <hr class="section-divider" />
 
-          <!-- iOS 教程 -->
-          <div id="ios" style="scroll-margin-top: 20px">
-            <div class="section-title">
+          <section id="ios" data-spy style="scroll-margin-top: 20px">
+            <h2 class="section-title">
               <i class="fab fa-apple"></i> iOS / iPhone 教程
-            </div>
+            </h2>
 
-            <div
-              class="tip-box"
-              style="
-                background-color: #fff1f0;
-                border-color: #ffa39e;
-                color: #cf1322;
-              "
-            >
+            <div class="tip-box warning">
               <i class="fas fa-exclamation-circle"></i>
               <span
                 ><strong>非常重要：</strong>请必须使用
@@ -325,72 +201,50 @@
                 <div class="step-title">下载软件</div>
                 <div class="step-desc">
                   登录外区 Apple ID 后，在 AppStore 搜索
-                  <strong>Hiddify</strong>
+                  <strong>Hiddify</strong>。
                 </div>
               </li>
               <li class="step-item">
                 <div class="step-title">导入订阅</div>
                 <div class="step-desc">
                   1. 复制订阅链接（或免费节点链接）。<br />
-                  <span
-                    style="
-                      color: #666;
-                      font-size: 0.9em;
-                      background: #fffbe6;
-                      padding: 2px 5px;
-                      border-radius: 4px;
-                      display: inline-block;
-                      margin: 4px 0;
-                    "
-                  >
+                  <span class="inline-tip">
                     💡 提示：免费节点请访问
                     <a
                       href="https://jd.222260.xyz"
                       target="_blank"
-                      style="color: #06a7ff; text-decoration: underline"
+                      rel="noopener"
+                      class="highlight-link"
                       >jd.222260.xyz</a
                     >
                     获取 (复制网页内的订阅链接)。 </span
                   ><br />
                   2. 打开 Hiddify APP，点击右上角的
                   <strong>+ 号</strong>。<br />
-                  3. 选择
-                  <strong>从剪贴板导入</strong>。
+                  3. 选择 <strong>从剪贴板导入</strong>。
                 </div>
               </li>
               <li class="step-item">
                 <div class="step-title">允许权限并连接</div>
                 <div class="step-desc">
-                  点击中间的大圆钮连接。系统会弹出“Hiddify Would Like to Add VPN
-                  Configurations”，点击
+                  点击中间的大圆钮连接。系统会弹出"Hiddify Would Like to Add VPN
+                  Configurations"，点击
                   <strong>Allow (允许)</strong> 并验证密码/面容。<br />
                   按钮变绿即连接成功。
                 </div>
               </li>
             </ol>
-          </div>
+          </section>
 
-          <div style="height: 100px"></div>
-          <!-- 底部留白 -->
+          <div class="article-spacer"></div>
         </div>
       </div>
     </div>
 
-    <script>
-      // 简单的滚动逻辑
-      function scrollToSection(id, element) {
-        // 1. 切换侧边栏高亮
-        document
-          .querySelectorAll(".menu-item")
-          .forEach((item) => item.classList.remove("active"));
-        element.classList.add("active");
+    <button class="back-to-top" id="backToTop" aria-label="返回顶部">
+      <i class="fas fa-arrow-up"></i>
+    </button>
 
-        // 2. 滚动到对应区域
-        const section = document.getElementById(id);
-        if (section) {
-          section.scrollIntoView({ behavior: "smooth" });
-        }
-      }
-    </script>
+    <script src="tutorial.js"></script>
   </body>
 </html>

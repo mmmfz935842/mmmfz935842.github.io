@@ -2,24 +2,87 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>魔法云盘 - 资源下载</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#5B8DEF" />
+
+    <!-- SEO 基础 -->
+    <title>魔法云盘 - Clash Verge / FlClash / Hiddify 全平台下载与使用教程</title>
+    <meta
+      name="description"
+      content="魔法云盘提供 Clash Verge、FlClash、Hiddify、v2rayN 等代理客户端的 Windows / macOS / Android 全平台一键下载，配套保姆级使用教程，支持多线路镜像加速。"
+    />
+    <meta
+      name="keywords"
+      content="Clash Verge,FlClash,Hiddify,v2rayN,Clash下载,机场推荐,代理客户端,免费节点,使用教程"
+    />
+    <meta name="author" content="魔法云盘" />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://pan.101079.xyz/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="魔法云盘 - 全平台代理客户端下载与教程" />
+    <meta
+      property="og:description"
+      content="一站式下载 Clash Verge / FlClash / Hiddify，多镜像加速，附赠保姆级图文教程。"
+    />
+    <meta property="og:site_name" content="魔法云盘" />
+    <meta property="og:locale" content="zh_CN" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="魔法云盘 - 全平台代理客户端下载" />
+    <meta
+      name="twitter:description"
+      content="Clash Verge / FlClash / Hiddify 全平台下载与教程"
+    />
+
+    <!-- 结构化数据 -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "魔法云盘",
+        "url": "https://pan.101079.xyz/",
+        "description": "全平台代理客户端下载与使用教程",
+        "inLanguage": "zh-CN",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://pan.101079.xyz/?search={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "魔法云盘",
+        "url": "https://pan.101079.xyz/",
+        "description": "提供 Clash Verge、FlClash、Hiddify 等代理客户端的全平台下载与教程",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Windows, macOS, Android, iOS",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "CNY"
+        }
+      }
+    </script>
+
     <style>
       body {
         margin: 0;
         padding: 0;
-        background-color: #f5f6fa;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          sans-serif;
+        background-color: #f6f8fc;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+          "Microsoft YaHei", Roboto, sans-serif;
         overflow: hidden;
       }
       #loading-screen {
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #ffffff;
+        inset: 0;
+        background: linear-gradient(135deg, #fafbff 0%, #f3f6fe 100%);
         z-index: 99999;
         display: flex;
         flex-direction: column;
@@ -32,49 +95,52 @@
         visibility: hidden;
       }
       .loader-icon {
-        font-size: 3.5rem;
-        color: #06a7ff;
-        margin-bottom: 15px;
-        animation: cloudPulse 1.5s infinite ease-in-out;
+        font-size: 3.6rem;
+        background: linear-gradient(135deg, #5b8def 0%, #a78bfa 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 18px;
+        animation: cloudPulse 1.6s infinite ease-in-out;
       }
       .loader-text {
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: #555;
-        letter-spacing: 2px;
-        margin-bottom: 20px;
+        font-size: 1.15rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #5b8def 0%, #a78bfa 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: 3px;
+        margin-bottom: 24px;
       }
       .progress-container {
         width: 220px;
         height: 4px;
-        background-color: #f0f0f0;
-        border-radius: 4px;
+        background-color: #e8edf7;
+        border-radius: 999px;
         overflow: hidden;
-        position: relative;
       }
       .progress-bar {
         height: 100%;
-        background-color: #06a7ff;
+        background: linear-gradient(90deg, #5b8def, #a78bfa);
         width: 0%;
-        border-radius: 4px;
+        border-radius: 999px;
         transition: width 0.2s linear;
       }
       @keyframes cloudPulse {
-        0%,
-        100% {
-          transform: scale(1);
-          opacity: 1;
-        }
-        50% {
-          transform: scale(1.1);
-          opacity: 0.8;
-        }
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.12); opacity: 0.8; }
       }
     </style>
 
+    <!-- FontAwesome CDN：国内主线 + jsDelivr 备线 -->
+    <link rel="preconnect" href="https://cdn.staticfile.net" crossorigin />
+    <link rel="preload" href="https://cdn.staticfile.net/font-awesome/6.4.0/css/all.min.css" as="style" />
     <link
+      id="fa-css"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      href="https://cdn.staticfile.net/font-awesome/6.4.0/css/all.min.css"
+      onerror="this.onerror=null;this.href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css'"
     />
     <link rel="icon" type="image/svg+xml" href="favicon.ico" />
     <link rel="stylesheet" href="style.css" />
@@ -88,7 +154,7 @@
       </div>
     </div>
 
-    <div class="header">
+    <header class="header">
       <div class="logo">
         <i class="fa-solid fa-cloud-bolt"></i>
         <span>魔法云盘</span>
@@ -97,6 +163,7 @@
         <a
           href="https://jd.222260.xyz/"
           target="_blank"
+          rel="noopener"
           class="nav-btn btn-node"
           title="免费节点"
         >
@@ -106,36 +173,50 @@
         <a
           href="https://qm.qq.com/cgi-bin/qm/qr?k=UP4bzwoZNvx1Ztwf5PjAqAbyoV-bZYv-&jump_from=webapi&authKey=ncqJbgXwKl78TeWw4/2rKyWMWZtsW2b4IqIOatHV88mKoVyBmh7HXq34PibN38hZ"
           target="_blank"
+          rel="noopener"
           class="nav-btn btn-group"
           title="加入QQ群"
         >
           <i class="fab fa-qq"></i> <span style="margin-left: 4px">QQ群</span>
         </a>
       </div>
-    </div>
+    </header>
 
-    <div class="main-container">
-      <div class="sidebar">
-        <div class="menu-item active" onclick="filterFiles('all', this)">
+    <main class="main-container">
+      <nav class="sidebar" id="sidebar">
+        <div class="menu-item active" data-category="all">
           <i class="fas fa-folder-open"></i> 全部文件
         </div>
-        <div class="menu-item" onclick="filterFiles('windows', this)">
+        <div class="menu-item" data-category="windows">
           <i class="fab fa-windows"></i> Windows
         </div>
-        <div class="menu-item" onclick="filterFiles('android', this)">
+        <div class="menu-item" data-category="android">
           <i class="fab fa-android"></i> Android
         </div>
-        <div class="menu-item" onclick="filterFiles('mac', this)">
+        <div class="menu-item" data-category="mac">
           <i class="fab fa-apple"></i> macOS
         </div>
-        <div class="menu-item" onclick="filterFiles('tutorial', this)">
+        <div class="menu-item" data-category="tutorial">
           <i class="fas fa-book-open"></i> 使用教程
         </div>
-      </div>
+      </nav>
 
-      <div class="content-area">
+      <section class="content-area">
         <div class="toolbar">
           <div class="breadcrumb" id="breadcrumb">全部文件</div>
+          <div class="search-box" id="searchBox">
+            <i class="fas fa-search search-icon"></i>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="搜索文件或教程..."
+              autocomplete="off"
+              aria-label="搜索"
+            />
+            <button class="search-clear" id="searchClear" aria-label="清除搜索">
+              <i class="fas fa-times-circle"></i>
+            </button>
+          </div>
         </div>
 
         <div class="file-row-header">
@@ -144,394 +225,64 @@
           <div class="col-action">操作</div>
         </div>
 
-        <div class="file-list">
-          <!-- Windows -->
-          <div class="file-row" data-category="windows">
-            <div class="col-name">
-              <i class="fas fa-file-code file-icon exe"></i>
-              <div class="file-info-group">
-                <div class="file-name-wrapper">
-                  <span class="file-name-text"
-                    >FlClash-0.8.92-windows-setup.exe</span
-                  >
-                  <span class="tag-recommend" style="background: #06a7ff"
-                    >最新</span
-                  >
-                </div>
-                <p class="file-desc">
-                  现代化的多平台代理客户端，功能强大且轻量。
-                </p>
-              </div>
-            </div>
-            <div class="col-date">2026-02-02</div>
-            <div class="col-action">
-              <a
-                href="https://xz.5556.tech/https://github.com/chen08209/FlClash/releases/download/v0.8.92/FlClash-0.8.92-windows-amd64-setup.exe"
-                class="download-btn"
-                target="_blank"
-                ><i class="fas fa-download"></i
-              ></a>
-            </div>
-          </div>
-
-          <div class="file-row" data-category="windows">
-            <div class="col-name">
-              <i class="fas fa-file-code file-icon exe"></i>
-              <div class="file-info-group">
-                <div class="file-name-wrapper">
-                  <span class="file-name-text">Hiddify-setup.exe</span>
-                  <span class="tag-recommend">小白推荐</span>
-                </div>
-                <p class="file-desc">
-                  界面现代简洁，一键智能连接，非常适合新手用户。
-                </p>
-              </div>
-            </div>
-            <div class="col-date">2025-11-20</div>
-            <div class="col-action">
-              <a
-                href="https://xz.5556.tech/https://github.com/hiddify/hiddify-next/releases/latest/download/Hiddify-Windows-Setup-x64.exe"
-                class="download-btn"
-                target="_blank"
-                ><i class="fas fa-download"></i
-              ></a>
-            </div>
-          </div>
-
-          <div class="file-row" data-category="windows">
-            <div class="col-name">
-              <i class="fas fa-file-code file-icon exe"></i>
-              <div class="file-info-group">
-                <div class="file-name-wrapper">
-                  <span class="file-name-text">Clash Verge_2.4.7.exe</span>
-                </div>
-                <p class="file-desc">
-                  优秀的 Clash 桌面客户端，UI美观，功能强大且稳定。
-                </p>
-              </div>
-            </div>
-            <div class="col-date">2026-03-22</div>
-            <div class="col-action">
-              <a
-                href="https://xz.5556.tech/https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.4.7/Clash.Verge_2.4.7_x64-setup.exe"
-                class="download-btn"
-                target="_blank"
-                ><i class="fas fa-download"></i
-              ></a>
-            </div>
-          </div>
-
-          <div class="file-row" data-category="windows">
-            <div class="col-name">
-              <i class="fas fa-file-zipper file-icon zip"></i>
-              <div class="file-info-group">
-                <div class="file-name-wrapper">
-                  <span class="file-name-text">v2rayN.zip</span>
-                </div>
-                <p class="file-desc">
-                  经典老牌工具，支持协议众多，适合喜欢折腾的进阶用户。
-                </p>
-              </div>
-            </div>
-            <div class="col-date">2025-11-20</div>
-            <div class="col-action">
-              <a
-                href="https://xz.5556.tech/https://github.com/2dust/v2rayN/releases/download/7.15.7/v2rayN-windows-64-desktop.zip"
-                class="download-btn"
-                target="_blank"
-                ><i class="fas fa-download"></i
-              ></a>
-            </div>
-          </div>
-
-          <!-- Android -->
-          <div class="file-row" data-category="android">
-            <div class="col-name">
-              <i class="fab fa-android file-icon apk"></i>
-              <div class="file-info-group">
-                <div class="file-name-wrapper">
-                  <span class="file-name-text">FlClash-0.8.92.apk</span>
-                  <span class="tag-recommend" style="background: #06a7ff"
-                    >最新</span
-                  >
-                </div>
-                <p class="file-desc">
-                  安卓端 FlClash 客户端，界面优雅、支持最新协议配置。
-                </p>
-              </div>
-            </div>
-            <div class="col-date">2026-02-02</div>
-            <div class="col-action">
-              <a
-                href="https://xz.5556.tech/https://github.com/chen08209/FlClash/releases/download/v0.8.92/FlClash-0.8.92-android-arm64-v8a.apk"
-                class="download-btn"
-                target="_blank"
-                ><i class="fas fa-download"></i
-              ></a>
-            </div>
-          </div>
-
-          <div class="file-row" data-category="android">
-            <div class="col-name">
-              <i class="fab fa-android file-icon apk"></i>
-              <div class="file-info-group">
-                <div class="file-name-wrapper">
-                  <span class="file-name-text">Hiddify.apk</span>
-                  <span class="tag-recommend">小白推荐</span>
-                </div>
-                <p class="file-desc">
-                  安卓端通用版本，操作逻辑简单，安装即用。
-                </p>
-              </div>
-            </div>
-            <div class="col-date">2025-11-20</div>
-            <div class="col-action">
-              <a
-                href="https://xz.5556.tech/https://github.com/hiddify/hiddify-next/releases/latest/download/Hiddify-Android-universal.apk"
-                class="download-btn"
-                target="_blank"
-                ><i class="fas fa-download"></i
-              ></a>
-            </div>
-          </div>
-
-          <div class="file-row" data-category="android">
-            <div class="col-name">
-              <i class="fab fa-android file-icon apk"></i>
-              <div class="file-info-group">
-                <div class="file-name-wrapper">
-                  <span class="file-name-text">Clash Meta.apk</span>
-                </div>
-                <p class="file-desc">
-                  基于 Meta 内核，兼容性极佳，支持最新协议。
-                </p>
-              </div>
-            </div>
-            <div class="col-date">2025-12-22</div>
-            <div class="col-action">
-              <a
-                href="https://xz.5556.tech/https://www.ytools.cc/gh/https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/v2.11.21/cmfa-2.11.21-meta-universal-release.apk"
-                class="download-btn"
-                target="_blank"
-                ><i class="fas fa-download"></i
-              ></a>
-            </div>
-          </div>
-
-          <!-- Mac -->
-          <div class="file-row" data-category="mac">
-            <div class="col-name">
-              <i class="fas fa-compact-disc file-icon dmg"></i>
-              <div class="file-info-group">
-                <div class="file-name-wrapper">
-                  <span class="file-name-text">FlClash-0.8.92_M芯片.dmg</span>
-                  <span class="tag-recommend" style="background: #06a7ff"
-                    >最新</span
-                  >
-                </div>
-                <p class="file-desc">
-                  适用于 Apple Silicon (M1/M2/M3/M4) 芯片的 Mac 电脑。
-                </p>
-              </div>
-            </div>
-            <div class="col-date">2026-02-02</div>
-            <div class="col-action">
-              <a
-                href="https://xz.5556.tech/https://github.com/chen08209/FlClash/releases/download/v0.8.92/FlClash-0.8.92-macos-arm64.dmg"
-                class="download-btn"
-                target="_blank"
-                ><i class="fas fa-download"></i
-              ></a>
-            </div>
-          </div>
-
-          <div class="file-row" data-category="mac">
-            <div class="col-name">
-              <i class="fas fa-compact-disc file-icon dmg"></i>
-              <div class="file-info-group">
-                <div class="file-name-wrapper">
-                  <span class="file-name-text">FlClash-0.8.92_Intel.dmg</span>
-                  <span class="tag-recommend" style="background: #06a7ff"
-                    >最新</span
-                  >
-                </div>
-                <p class="file-desc">
-                  适用于旧款 Intel 处理器芯片的 Mac 电脑。
-                </p>
-              </div>
-            </div>
-            <div class="col-date">2026-02-02</div>
-            <div class="col-action">
-              <a
-                href="https://xz.5556.tech/https://github.com/chen08209/FlClash/releases/download/v0.8.92/FlClash-0.8.92-macos-amd64.dmg"
-                class="download-btn"
-                target="_blank"
-                ><i class="fas fa-download"></i
-              ></a>
-            </div>
-          </div>
-
-          <div class="file-row" data-category="mac">
-            <div class="col-name">
-              <i class="fas fa-compact-disc file-icon dmg"></i>
-              <div class="file-info-group">
-                <div class="file-name-wrapper">
-                  <span class="file-name-text"
-                    >Clash Verge_2.4.7_M芯片.dmg</span
-                  >
-                </div>
-                <p class="file-desc">
-                  适用于 Apple Silicon (M1/M2/M3/M4) 芯片的 Mac 电脑。
-                </p>
-              </div>
-            </div>
-            <div class="col-date">2026-03-22</div>
-            <div class="col-action">
-              <a
-                href="https://xz.5556.tech/https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.4.7/Clash.Verge_2.4.7_aarch64.dmg"
-                class="download-btn"
-                target="_blank"
-                ><i class="fas fa-download"></i
-              ></a>
-            </div>
-          </div>
-
-          <div class="file-row" data-category="mac">
-            <div class="col-name">
-              <i class="fas fa-compact-disc file-icon dmg"></i>
-              <div class="file-info-group">
-                <div class="file-name-wrapper">
-                  <span class="file-name-text"
-                    >Clash Verge_2.4.7_Intel.dmg</span
-                  >
-                </div>
-                <p class="file-desc">
-                  适用于旧款 Intel 处理器芯片的 Mac 电脑。
-                </p>
-              </div>
-            </div>
-            <div class="col-date">2026-03-22</div>
-            <div class="col-action">
-              <a
-                href="https://xz.5556.tech/https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.4.7/Clash.Verge_2.4.7_x64.dmg"
-                class="download-btn"
-                target="_blank"
-                ><i class="fas fa-download"></i
-              ></a>
-            </div>
-          </div>
-
-          <!-- 教程板块 -->
-          <div class="file-row" data-category="tutorial">
-            <div class="col-name">
-              <i class="fas fa-book-journal-whills file-icon doc"></i>
-              <div class="file-info-group">
-                <div class="file-name-wrapper">
-                  <span class="file-name-text">FlClash 配置教程</span>
-                  <span class="tag-recommend" style="background: #06a7ff"
-                    >最新</span
-                  >
-                </div>
-                <p class="file-desc">
-                  全新加入！FlClash 全平台客户端导入订阅与使用指南。
-                </p>
-              </div>
-            </div>
-            <div class="col-date">2026-02-02</div>
-            <div class="col-action">
-              <a href="flclashhelp.html" class="download-btn" title="阅读教程"
-                ><i class="fas fa-eye"></i
-              ></a>
-            </div>
-          </div>
-
-          <div class="file-row" data-category="tutorial">
-            <div class="col-name">
-              <i class="fas fa-book-journal-whills file-icon doc"></i>
-              <div class="file-info-group">
-                <div class="file-name-wrapper">
-                  <span class="file-name-text">Clash Verge 配置教程</span>
-                </div>
-                <p class="file-desc">
-                  教你如何导入订阅、开启系统代理以及基础故障排查。
-                </p>
-              </div>
-            </div>
-            <div class="col-date">2026-03-22</div>
-            <div class="col-action">
-              <a
-                href="clashvergehelp.html"
-                class="download-btn"
-                title="阅读教程"
-                ><i class="fas fa-eye"></i
-              ></a>
-            </div>
-          </div>
-
-          <div class="file-row" data-category="tutorial">
-            <div class="col-name">
-              <i class="fas fa-book-journal-whills file-icon doc"></i>
-              <div class="file-info-group">
-                <div class="file-name-wrapper">
-                  <span class="file-name-text">Hiddify 使用指南</span>
-                </div>
-                <p class="file-desc">
-                  Hiddify 界面功能详解，如何快速连接节点。
-                </p>
-              </div>
-            </div>
-            <div class="col-date">2025-12-22</div>
-            <div class="col-action">
-              <a href="hiddifyhelp.html" class="download-btn" title="阅读教程"
-                ><i class="fas fa-eye"></i
-              ></a>
-            </div>
-          </div>
-
-          <div
-            id="empty-state"
-            style="
-              display: none;
-              text-align: center;
-              padding: 50px;
-              color: #ccc;
-            "
-          >
-            <i
-              class="fas fa-folder-open"
-              style="font-size: 3rem; margin-bottom: 10px"
-            ></i>
-            <p>暂无文件</p>
+        <div class="file-list" id="fileList">
+          <div id="empty-state" style="display: none">
+            <i class="fas fa-folder-open"></i>
+            <p>没有找到匹配的内容</p>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
 
-    <!-- 弹窗公告 -->
+    <!-- 公告弹窗 -->
     <div class="modal-overlay" id="announceModal">
       <div class="modal-box">
         <div class="modal-title">🎉 魔法云盘更新公告</div>
         <div class="modal-content">
-          <p><strong>2026年03月22日更新：</strong></p>
+          <p><strong>2026年05月21日更新：</strong></p>
           <p>
-            1. <strong>Clash Verge</strong> 更新至最新版本，版本为
-            <strong>v2.4.7</strong>，Win/Mac已同步上架。
+            1. <strong>Clash Verge</strong> 全平台升级至
+            <strong>v2.5.1</strong>，Win / Mac (M芯片 & Intel) 同步上架。
           </p>
           <p>
-            2. 新增配套
-            <strong>FlClash 使用教程</strong>，点击左侧教程菜单即可查看。
+            2. 新增 <strong>多线路镜像下载</strong>，主线路失败可一键切换备用线路。
           </p>
           <p>
-            3. <strong>ClashMeta / Clash Verge</strong> 常规版本维护已完成更新。
+            3. 新增 <strong>站内搜索</strong>，文件 / 教程一键直达。
           </p>
           <br />
           <p style="font-size: 0.85rem; color: #999">
-            由于服务器位于海外，传输可能受网络波动影响，若下载缓慢请耐心等待。
+            服务器位于海外，传输受网络波动影响，下载缓慢请耐心等待或切换其它线路。
           </p>
         </div>
         <button class="modal-btn" onclick="closeModal()">我知道了</button>
       </div>
     </div>
+
+    <!-- 下载弹窗 -->
+    <div class="modal-overlay" id="downloadModal">
+      <div class="modal-box modal-download">
+        <div class="modal-title">
+          <i class="fas fa-cloud-arrow-down"></i> 选择下载线路
+        </div>
+        <div class="modal-content">
+          <div class="dl-filename" id="dlFilename"></div>
+          <div class="dl-tip">
+            <i class="fas fa-globe"></i>
+            服务器位于海外，建议优先尝试线路 1。如果某条线路打不开或下载缓慢，请按顺序切换 2、3、4。
+          </div>
+          <div class="dl-mirrors" id="dlMirrors"></div>
+        </div>
+        <button class="modal-btn modal-btn-ghost" onclick="closeDownloadModal()">
+          取消
+        </button>
+      </div>
+    </div>
+
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop" aria-label="返回顶部">
+      <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="script.js"></script>
   </body>

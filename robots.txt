@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Sitemap: https://pan.101079.xyz/sitemap.xml
+
+# Disallow admin pages (if any)
+# Disallow: /admin/
